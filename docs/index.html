@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HJCD studios | Calculator</title>
+<meta name="author" content="HJCD studios">
+<meta name="keywords" content="Calculator">
+<meta name="description" content="Simple calculator app">
+<meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1">
+<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8" />
+</head>
+<body>
+<center>
+<table border>
+<tr>
+<td id="screen" colspan="4">
+</td>
+</tr>
+<tr>
+<td>
+<input type="button" value="1" onClick="adds(this.value)">
+</td>
+<td>
+<input type="button" value="2" onClick="adds(this.value)">
+</td>
+<td>
+<input type="button" value="3" onClick="adds(this.value)">
+</td>
+<td>
+<input type="button" value="+" onClick="adds(this.value)">
+</td>
+</tr>
+<tr>
+<td>
+<input type="button" value="4" onClick="adds(this.value)">
+</td>
+<td>
+<input type="button" value="5" onClick="adds(this.value)">
+</td>
+<td>
+<input type="button" value="6" onClick="adds(this.value)">
+</td>
+<td>
+<input type="button" value="-" onClick="adds(this.value)">
+</td>
+</tr>
+<tr>
+<td>
+<input type="button" value="7" onClick="adds(this.value)">
+</td>
+<td>
+<input type="button" value="8" onClick="adds(this.value)">
+</td>
+<td>
+<input type="button" value="9" onClick="adds(this.value)">
+</td>
+<td>
+<input type="button" value="/" onClick="adds(this.value)">
+</td>
+</tr>
+<tr>
+<td>
+<input type="button" value="0" onClick="adds(this.value)">
+</td>
+<td colspan="2">
+<input type="button" value="=" onClick="calc()">
+</td>
+<td>
+<input type="button" value="*" onClick="adds(this.value)">
+</td>
+</tr>
+<tr>
+<td>
+<input type="button" value="(" onClick="adds(this.value)">
+</td>
+<td>
+<input type="button" value=")" onClick="adds(this.value)">
+</td>
+<td colspan="2">
+<input type="button" value="<--" onClick="sub()">
+</td>
+</tr>
+</table>
+</center>
+<style type="text/css">
+table {
+  width: 100%;
+}
+input[type="button"] {
+  width: 100%;
+  font-size: 20px;
+}
+td {
+  text-align: center;
+  font-family: sans-serif;
+}
+#screen {
+  height: 100px;
+}
+</style>
+<script type="text/javascript">
+var IsNew = false;
+function adds(val) {
+  if (IsNew) {
+    document.getElementById("screen").innerHTML = ""
+    document.getElementById("screen").innerHTML += val;
+    IsNew = false;
+  } else {
+    document.getElementById("screen").innerHTML += val;
+  }
+}
+function sub() {
+  var aa = document.getElementById("screen").innerHTML;
+  var ab = aa.length - 1;
+  var ac = aa.slice(0,ab);
+  document.getElementById("screen").innerHTML = ac;
+}
+function calc() {
+  var aa = document.getElementById("screen").innerHTML;
+  var ab = eval(aa);
+  if (ab.length != "") {
+    document.getElementById("screen").innerHTML = ab;
+  } else {
+    document.getElementById("screen").innerHTML = "Error";
+  }
+  if (ab == 0) {
+    IsNew = true;
+  }
+}
+</script>
+</body>
+</html>
