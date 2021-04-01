@@ -117,11 +117,7 @@ function sub() {
 function calc() {
   var aa = document.getElementById("screen").innerHTML;
   var ab = eval(aa);
-  if (ab != "") {
-    document.getElementById("screen").innerHTML = ab;
-  } else {
-    document.getElementById("screen").innerHTML = "Error";
-  }
+  document.getElementById("screen").innerHTML = ab;
   if (ab == 0) {
     IsNew = true;
   }
